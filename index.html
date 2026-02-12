@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VideoSDK - Distributed State Synchronization</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        header {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+        .icon { font-size: 32px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Distributed State Synchronization Service</h1>
+            <p class="subtitle">Production-Grade Collaborative Editing Platform</p>
+            <p style="margin-top: 15px; font-size: 12px; color: #999;">
+                Real-time sync | CRDT Conflicts | Multi-Instance | Observability
+            </p>
+        </header>
+
+        <div class="grid">
+            <!-- Quick Start -->
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h2>Quick Start</h2>
+                <p>Get everything running in 5 minutes with the setup script.</p>
+                <div class="code-block">
+PowerShell: .\setup.ps1 init
+PowerShell: .\setup.ps1 start
+                </div>
+                <a href="QUICKSTART.md" class="btn">View Guide</a>
+                <span class="status-badge">✓ Ready</span>
+            </div>
+
+            <!-- Full Documentation -->
+            <div class="card">
+                <div class="icon">📖</div>
+                <h2>Full Documentation</h2>
+                <p>Comprehensive guide covering architecture, setup, and APIs.</p>
+                <p>Topics: CRDT explanation, multi-instance sync, metrics, protocol documentation.</p>
+                <a href="README.md" class="btn">Read More</a>
+                <span class="status-badge">700+ lines</span>
+            </div>
+
+            <!-- Project Summary -->
+            <div class="card">
+                <div class="icon">📊</div>
+                <h2>Project Summary</h2>
+                <p>High-level overview of architecture, features, and interview talking points.</p>
+                <p>How it demonstrates system design, scalability, and production-grade code.</p>
+                <a href="PROJECT_SUMMARY.md" class="btn">Learn More</a>
+                <span class="status-badge">✓ Complete</span>
+            </div>
+
+            <!-- Demo Client -->
+            <div class="card">
+                <div class="icon">🌐</div>
+                <h2>Demo Client</h2>
+                <p>Interactive HTML/JS client for testing real-time collaboration.</p>
+                <p>Supports multiple tabs, multi-instance sync, and live metrics.</p>
+                <a href="client/index.html" class="btn">Open Client</a>
+                <span class="status-badge">Ready</span>
+            </div>
+
+            <!-- Backend Code -->
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h2>Backend Service</h2>
+                <p>TypeScript WebSocket server with Yjs CRDT and Redis coordination.</p>
+                <p><strong>Features:</strong> Room management, conflict resolution, metrics, multi-instance sync</p>
+                <div class="code-block">
+cd backend
+npm install
+npm run build
+                </div>
+                <span class="status-badge">✓ Built</span>
+            </div>
+
+            <!-- Metrics & Monitoring -->
+            <div class="card">
+                <div class="icon">📈</div>
+                <h2>Metrics & Monitoring</h2>
+                <p>Prometheus-compatible metrics endpoints for observability.</p>
+                <p><strong>Endpoints:</strong> http://localhost:9090/metrics</p>
+                <div class="code-block">
+curl http://localhost:9090/metrics
+curl http://localhost:9091/metrics
+                </div>
+                <span class="status-badge">Ready</span>
+            </div>
+        </div>
+
+        <!-- Architecture Overview -->
+        <div class="card" style="margin-bottom: 40px;">
+            <h2>System Architecture</h2>
+            <pre style="background: #f5f5f5; padding: 15px; border-radius: 6px; overflow-x: auto; font-size: 12px;">
+┌─────────────────────────────────────────────────────────┐
+│        Browser Tabs (Demo Client)                       │
+├─────────────────────────────────────────────────────────┤
+│  Tab A              Tab B              Tab C             │
+│  (ws://8080)        (ws://8081)        (ws://8080)      │
+└────┬──────────────────┬──────────────────┬──────────────┘
+     │ WebSocket        │ WebSocket        │ WebSocket    
+     ▼                  ▼                  ▼
+┌──────────────────┐  ┌──────────────────┐              
+│  Instance 1      │  │  Instance 2      │              
+│  Port 8080       │  │  Port 8081       │              
+│  Metrics: 9090   │  │  Metrics: 9091   │              
+└────┬─────────────┘  └────┬─────────────┘              
+     │ Embed Yjs Docs     │ Embedded Yjs Docs
+     │                    │
+     └────────┬───────────┘
+              │ Pub/Sub
+              ▼
+         ┌─────────────┐
+         │    Redis    │
+         │   Pub/Sub   │
+         │ Port 6379   │
+         └─────────────┘
+
+Key: CRDT Conflict Resolution ✓ Multi-Instance Sync ✓ No Data Loss
+            </pre>
+        </div>
+
+        <!-- Getting Started Section -->
+        <div class="card">
+            <h2>🚀 Getting Started</h2>
+            <h3 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Step 1: Initialize Project</h3>
+            <div class="code-block">.\setup.ps1 init</div>
+            
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">Step 2: Start Services</h3>
+            <div class="code-block">.\setup.ps1 start</div>
+            <p style="margin-top: 10px; font-size: 12px; color: #666;">
+                This will start Redis, Backend Instance 1 (port 8080), and Backend Instance 2 (port 8081)
+            </p>
+
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">Step 3: Test Collaboration</h3>
+            <ul style="margin-left: 20px; font-size: 14px; color: #666; line-height: 1.8;">
+                <li>Open: <a href="client/index.html">client/index.html</a></li>
+                <li>Connect to: ws://localhost:8080</li>
+                <li>Open another tab, connect to: ws://localhost:8081</li>
+                <li>Edit in one tab → see updates in other tab instantly ✓</li>
+            </ul>
+
+            <h3 style="color: #667eea; margin-top: 15px; margin-bottom: 10px;">View Metrics</h3>
+            <div class="code-block">
+# Instance 1 metrics
+curl http://localhost:9090/metrics
+
+# Instance 2 metrics  
+curl http://localhost:9091/metrics
+            </div>
+        </div>
+
+        <!-- Key Features -->
+        <div class="card">
+            <h2>✨ Key Features</h2>
+            <ul style="margin-left: 20px; font-size: 14px; color: #666; line-height: 2;">
+                <li>✅ Real-time WebSocket Collaboration</li>
+                <li>✅ CRDT-based Conflict Resolution (Yjs)</li>
+                <li>✅ Multi-Instance Synchronization (Redis Pub/Sub)</li>
+                <li>✅ Prometheus Metrics Endpoint</li>
+                <li>✅ Production-Grade TypeScript Code</li>
+                <li>✅ Comprehensive Error Handling & Logging</li>
+                <li>✅ Horizontal Scalability (Stateless Design)</li>
+                <li>✅ Docker Container Support (Redis)</li>
+            </ul>
+        </div>
+
+        <!-- Documentation Index -->
+        <div class="card">
+            <h2>📚 Documentation Index</h2>
+            <ul style="margin-left: 20px; font-size: 14px; color: #667eea; line-height: 2;">
+                <li><strong><a href="README.md">README.md</a></strong> - Full technical documentation (700+ lines)</li>
+                <li><strong><a href="QUICKSTART.md">QUICKSTART.md</a></strong> - 5-minute setup guide</li>
+                <li><strong><a href="PROJECT_SUMMARY.md">PROJECT_SUMMARY.md</a></strong> - Architecture & interview points</li>
+                <li><strong>backend/src/index.ts</strong> - Main server entry point</li>
+                <li><strong>backend/src/types.ts</strong> - Type definitions</li>
+                <li><strong>client/index.html</strong> - Demo client UI</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>VideoSDK - Distributed State Synchronization Service</p>
+            <p style="font-size: 12px; margin-top: 10px;">Backend + Infrastructure Engineer Interview Task © 2026</p>
+        </footer>
+    </div>
+</body>
+</html>

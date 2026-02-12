@@ -1,0 +1,42 @@
+{
+  "name": "video-sdk-collab-backend",
+  "version": "1.0.0",
+  "description": "Distributed State Synchronization Service with CRDT support",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "dev:instance1": "cross-env PORT=8082 REDIS_PORT=6379 METRICS_PORT=9092 INSTANCE_ID=instance-1 ts-node src/index.ts",
+    "dev:instance2": "cross-env PORT=8081 REDIS_PORT=6379 METRICS_PORT=9093 INSTANCE_ID=instance-2 ts-node src/index.ts",
+    "lint": "eslint src/**/*.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "websocket",
+    "crdt",
+    "yjs",
+    "collab",
+    "redis",
+    "sync"
+  ],
+  "author": "VideoSDK Interview",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "prom-client": "^15.0.0",
+    "redis": "^4.6.11",
+    "uuid": "^9.0.1",
+    "ws": "^8.14.2",
+    "yjs": "^13.6.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/uuid": "^9.0.7",
+    "@types/ws": "^8.5.10",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
